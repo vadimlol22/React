@@ -12,12 +12,9 @@ class CounterContainer extends Component {
     };
   }
 
-  componentDidUpdate() {
-    if (this.state.countValue % 2 === 0 && this.state.isEven !== true) {
-      this.setState({ isEven: true });
-    }
-    if (this.state.countValue % 2 !== 0 && this.state.isEven !== false) {
-      this.setState({ isEven: false });
+  componentDidUpdate(_, prevState) {
+    if (prevState.countValue !== this.state.countValue) {
+      this.setState({ isEven: this.state.countValue % 2 === 0 });
     }
   }
 
@@ -30,11 +27,9 @@ class CounterContainer extends Component {
   };
 
   handleSubtraction = () => {
-    this.setState((prevstate) => {
-      if (prevstate.countValue - 1 < 0) {
-        return { countValue: prevstate.countValue - 1 };
-      }
-    });
+    if (this.state.countValue > 0) {
+      this.setState({ countValue: this.state.countValue - 1 });
+    }
   };
 
   render() {
