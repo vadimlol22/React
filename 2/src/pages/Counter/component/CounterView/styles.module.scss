@@ -1,8 +1,9 @@
 .wrapper {
-  margin: 0 auto;
+  margin: 15px auto 0 auto;
   padding: 15px;
   border: solid 3px;
   width: 500px;
+  border-radius: 15px;
 }
 
 .display {
@@ -38,5 +39,21 @@
     &:active {
       background-color: black;
     }
+  }
+}
+
+.remove {
+  display: flex;
+  text-align: center;
+  margin: 30px auto 0 auto;
+  padding: 17px;
+  border-radius: 15px;
+  color: rgb(2, 245, 14);
+  background-color: red;
+  cursor: pointer;
+  font-weight: 700;
+
+  &:active {
+    background-color: black;
   }
 }

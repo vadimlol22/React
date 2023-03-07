@@ -1,13 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+
+import Router from "./routes/Router";
+
 import "./index.css";
-import reportWebVitals from "./reportWebVitals";
-import CounterContainer from "./pages/Counter/containers/CounterContainer";
+import MainLayout from "./commonComponents/MainLayout/MainLayout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <CounterContainer />
-  </React.StrictMode>
+  <BrowserRouter>
+    <MainLayout>
+      <React.StrictMode>
+        <Router />
+      </React.StrictMode>
+    </MainLayout>
+  </BrowserRouter>
 );
-reportWebVitals();

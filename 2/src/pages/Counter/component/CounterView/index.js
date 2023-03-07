@@ -7,13 +7,14 @@ const CounterView = ({
   handleIncrement,
   handleReset,
   handleSubtraction,
+  onDelete,
 }) => {
   const isEven = counterValue % 2 === 0;
 
   return (
     <div
       className={styles.wrapper}
-      style={{ background: isEven ? "green" : "red" }}
+      style={{ background: isEven ? "green" : "blue" }}
     >
       <div className={styles.display}>{counterValue}</div>
       <div className={styles.isEven}>
@@ -30,6 +31,9 @@ const CounterView = ({
           +
         </button>
       </div>
+      <button className={styles.remove} onClick={onDelete}>
+        Remove Counter
+      </button>
     </div>
   );
 };
@@ -39,7 +43,7 @@ CounterView.propTypes = {
   handleIncrement: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
   handleSubtraction: PropTypes.func.isRequired,
-  isEven: PropTypes.bool.isRequired,
+  onDelete: PropTypes.func,
 };
 
 export default CounterView;
