@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./styles.module.scss";
 
 const CounterView = ({
+  id,
   counterValue,
   handleIncrement,
   handleReset,
@@ -21,19 +22,30 @@ const CounterView = ({
         {isEven ? "Введено чётное число" : "Введено нечётное число"}
       </div>
       <div className={styles.buttons}>
-        <button className={styles.buttons__button} onClick={handleSubtraction}>
+        <button
+          className={styles.buttons__button}
+          onClick={() => handleSubtraction(id)}
+        >
           -
         </button>
-        <button className={styles.buttons__button} onClick={handleReset}>
+        <button
+          className={styles.buttons__button}
+          onClick={() => handleReset(id)}
+        >
           Reset
         </button>
-        <button className={styles.buttons__button} onClick={handleIncrement}>
+        <button
+          className={styles.buttons__button}
+          onClick={() => handleIncrement(id)}
+        >
           +
         </button>
       </div>
-      <button className={styles.remove} onClick={onDelete}>
-        Remove Counter
-      </button>
+      {onDelete && (
+        <button className={styles.remove} onClick={() => onDelete(id)}>
+          Remove Counter
+        </button>
+      )}
     </div>
   );
 };

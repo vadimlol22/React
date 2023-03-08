@@ -3,7 +3,7 @@ import CounterView from "../component/CounterView";
 
 import { useCounter } from "../../../commonComponents/hooks";
 
-const CounterContainer = ({ onDelete }) => {
+const CounterContainer = () => {
   const { countValue, handleIncrement, handleReset, handleSubtraction } =
     useCounter(0);
 
@@ -13,7 +13,6 @@ const CounterContainer = ({ onDelete }) => {
       handleIncrement={handleIncrement}
       handleReset={handleReset}
       handleSubtraction={handleSubtraction}
-      onDelete={onDelete}
     />
   );
 };
