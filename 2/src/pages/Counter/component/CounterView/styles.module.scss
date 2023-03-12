@@ -1,0 +1,59 @@
+.wrapper {
+  margin: 15px auto 0 auto;
+  padding: 15px;
+  border: solid 3px;
+  width: 500px;
+  border-radius: 15px;
+}
+
+.display {
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.isEven {
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+  padding: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+
+  &__button {
+    padding: 17px;
+    border-radius: 15px;
+    color: #d0ff31;
+    background-color: rgb(28, 126, 129);
+    cursor: pointer;
+    font-weight: 700;
+
+    &:active {
+      background-color: black;
+    }
+  }
+}
+
+.remove {
+  display: flex;
+  text-align: center;
+  margin: 30px auto 0 auto;
+  padding: 17px;
+  border-radius: 15px;
+  color: rgb(2, 245, 14);
+  background-color: red;
+  cursor: pointer;
+  font-weight: 700;
+
+  &:active {
+    background-color: black;
+  }
+}

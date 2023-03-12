@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+  background-color: rgb(41, 71, 153);
+  justify-content: center;
+}
+
+.link {
+  color: rgb(43, 24, 95);
+  padding: 10px;
+  background-color: rgb(32, 199, 191);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.1s;
+
+  &:hover {
+    background-color: rgb(41, 57, 104);
+    color: white;
+  }
+
+  &:active {
+    background-color: rgb(92, 31, 141);
+    color: white;
+  }
+}
