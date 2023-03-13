@@ -15,6 +15,9 @@ const Header = () => {
       <Link to={ROUTE_NAMES.COUNTERS} className={styles.link}>
         Counters
       </Link>
+      <Link to={ROUTE_NAMES.TODO} className={styles.link}>
+        TODO-List
+      </Link>
     </div>
   );
 };
