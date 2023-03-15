@@ -1,31 +1,48 @@
 import { handleActions } from "redux-actions";
+import { v4 as uuid } from "uuid";
 
 import * as actions from "../actions";
 
-import { v4 as uuid } from "uuid";
-
 const initialState = {
-  tasks: [],
+  todos: [],
 };
 
-const tasksRedecer = handleActions(
+const todosReducer = handleActions(
   {
-    [actions.createTask]: (state, { payload }) => {
+    [actions.createTodo]: (state, { payload: taskData }) => {
+      const copy = structuredClone(state);
+
       const newTask = {
         id: uuid(),
-        task: payload,
+        text: taskData.taskText,
         done: false,
         edit: false,
       };
 
-      const stateCopy = structuredClone(state);
+      copy.todos.unshift(newTask);
 
-      stateCopy.tasks.push(newTask);
+      return copy;
+    },
+    [actions.deleteTodo]: (state, { payload: taskId }) => {
+      const copy = structuredClone(state);
 
-      return stateCopy;
+      const findIndex = copy.todos.findIndex(({ id }) => id === taskId);
+
+      copy.todos.splice(findIndex, 1);
+
+      return copy;
+    },
+    [actions.completeTodo]: (state, { payload: taskId }) => {
+      const copy = structuredClone(state);
+
+      const foundTodo = copy.todos.find(({ id }) => id === taskId);
+
+      foundTodo.done = true;
+
+      return copy;
     },
   },
   initialState
 );
 
-export default tasksRedecer;
+export default todosReducer;

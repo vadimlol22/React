@@ -1,8 +1,8 @@
 import { createAction } from "redux-actions";
 
-export const createTask = createAction("CREATE_TASK");
-export const deleteTask = createAction("DELETE_TASK");
-export const completedTask = createAction("COMPLETED_TASK");
-export const editTask = createAction("EDIT_TASK");
-export const cancelChange = createAction("CANCEL_CHANGE");
-export const addChange = createAction("ADD_CHANGE");
+export const createTodo = createAction("CREATE_TODO");
+export const deleteTodo = createAction("DELETE_TODO");
+export const completeTodo = createAction("COMPLETE_TODO");
+export const editTodo = createAction("EDIT_TODO");
+export const undoTodo = createAction("UNDO_TODO");
+export const saveTodo = createAction("SAVE_TODO");
