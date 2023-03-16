@@ -15,8 +15,8 @@ const todosReducer = handleActions(
       const newTask = {
         id: uuid(),
         text: taskData.taskText,
-        done: false,
-        edit: false,
+        isCompleted: false,
+        isEditMode: false,
       };
 
       copy.todos.unshift(newTask);
@@ -26,9 +26,9 @@ const todosReducer = handleActions(
     [actions.deleteTodo]: (state, { payload: taskId }) => {
       const copy = structuredClone(state);
 
-      const findIndex = copy.todos.findIndex(({ id }) => id === taskId);
+      const findIndexElement = copy.todos.findIndex(({ id }) => id === taskId);
 
-      copy.todos.splice(findIndex, 1);
+      copy.todos.splice(findIndexElement, 1);
 
       return copy;
     },
@@ -37,7 +37,38 @@ const todosReducer = handleActions(
 
       const foundTodo = copy.todos.find(({ id }) => id === taskId);
 
-      foundTodo.done = true;
+      foundTodo.isCompleted = !foundTodo.isCompleted;
+
+      return copy;
+    },
+    [actions.editTodo]: (state, { payload: taskId }) => {
+      const copy = structuredClone(state);
+
+      const foundTodo = copy.todos.find(({ id }) => id === taskId);
+
+      foundTodo.isEditMode = true;
+
+      return copy;
+    },
+    [actions.undoTodo]: (state, { payload: taskId }) => {
+      const copy = structuredClone(state);
+
+      const foundTodo = copy.todos.find(({ id }) => id === taskId);
+
+      foundTodo.isEditMode = false;
+
+      return copy;
+    },
+    [actions.saveTodo]: (state, { payload: updatedTask }) => {
+      const { id: taskId, newText } = updatedTask;
+
+      const copy = structuredClone(state);
+
+      const foundTodo = copy.todos.find(({ id }) => id === taskId);
+
+      foundTodo.text = newText;
+
+      foundTodo.isEditMode = false;
 
       return copy;
     },

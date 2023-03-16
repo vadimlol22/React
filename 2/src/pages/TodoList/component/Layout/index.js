@@ -1,4 +1,5 @@
 import CreateTodoForm from "../CreateTodoForm";
+import EditableTodoItem from "../EditableTodoItem";
 import TodoItem from "../TodoItem";
 
 import styles from "./styles.module.scss";
@@ -9,9 +10,11 @@ const Layout = ({
   handleSubmit,
   taskText,
   handleChange,
-  handleDelete,
-  handleComplite,
-  handleEdit,
+  handleTaskDelete,
+  handleTaskComplete,
+  handleTaskEdit,
+  handleTaskCancel,
+  handleTaskSave,
 }) => {
   return (
     <div>
@@ -22,21 +25,29 @@ const Layout = ({
       />
 
       <div className={styles.todoArea}>
-        {todos.map(
-          ({ id, text, handleComplite, handleDelete, handleEdit }, index) => {
-            return (
-              <TodoItem
-                id={id}
-                key={id}
-                handleComplite={handleComplite}
-                taskText={text}
-                taskNumber={index + 1}
-                handleDelete={handleDelete}
-                handleEdit={handleEdit}
-              />
-            );
-          }
-        )}
+        {todos.map(({ id, text, isCompleted, isEditMode }, index) => {
+          return isEditMode ? (
+            <EditableTodoItem
+              key={id}
+              taskText={text}
+              taskNumber={index + 1}
+              id={id}
+              handleCancel={handleTaskCancel}
+              handleSave={handleTaskSave}
+            />
+          ) : (
+            <TodoItem
+              id={id}
+              key={id}
+              handleComplete={handleTaskComplete}
+              isCompleted={isCompleted}
+              taskText={text}
+              taskNumber={index + 1}
+              handleDelete={handleTaskDelete}
+              handleEdit={handleTaskEdit}
+            />
+          );
+        })}
       </div>
     </div>
   );

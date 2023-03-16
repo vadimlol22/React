@@ -2,7 +2,14 @@ import { useForm } from "../../../commonComponents/hooks";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { completeTodo, createTodo, deleteTodo } from "../actions";
+import {
+  completeTodo,
+  createTodo,
+  deleteTodo,
+  editTodo,
+  saveTodo,
+  undoTodo,
+} from "../actions";
 import { todosSelector } from "../selectors";
 
 import Layout from "../component/Layout";
@@ -20,12 +27,24 @@ const TodoContainer = () => {
     handleReset();
   };
 
-  const handleDelete = (id) => {
+  const handleTaskRemove = (id) => {
     dispatch(deleteTodo(id));
   };
 
-  const handleComplite = (id) => {
+  const handleTaskComplete = (id) => {
     dispatch(completeTodo(id));
+  };
+
+  const handleTaskEdit = (id) => {
+    dispatch(editTodo(id));
+  };
+
+  const handleTaskEditCancel = (id) => {
+    dispatch(undoTodo(id));
+  };
+
+  const handleTaskSave = (taskData) => {
+    dispatch(saveTodo(taskData));
   };
 
   return (
@@ -34,8 +53,12 @@ const TodoContainer = () => {
       taskText={form.taskText}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
-      handleDelete={handleDelete}
-      handleComplite={handleComplite}
+      handleTaskDelete={handleTaskRemove}
+      handleTaskComplete={handleTaskComplete}
+      handleTaskEdit={handleTaskEdit}
+      handleTaskEditCancel={handleTaskEditCancel}
+      handleTaskCancel={handleTaskEditCancel}
+      handleTaskSave={handleTaskSave}
     />
   );
 };

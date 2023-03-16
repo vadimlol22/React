@@ -2,17 +2,17 @@ import styles from "./styles.module.scss";
 
 const TodoItem = ({
   id,
-  done,
+  isCompleted,
   taskNumber,
   taskText,
-  handleComplite,
+  handleComplete,
   handleEdit,
   handleDelete,
 }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={isCompleted ? styles.wrapper_completed : styles.wrapper}>
       <div className={styles.wrapper__text}>{taskNumber}</div>
-      <div className={done ? styles.completed : styles.wrapper__text}>
+      <div className={isCompleted ? styles.completed : styles.wrapper__text}>
         {taskText}
       </div>
       <div className={styles.wrapper__btn}>
@@ -30,7 +30,7 @@ const TodoItem = ({
         </button>
         <button
           className={styles.wrapper__btn_3}
-          onClick={() => handleComplite(id)}
+          onClick={() => handleComplete(id)}
         >
           Complete
         </button>

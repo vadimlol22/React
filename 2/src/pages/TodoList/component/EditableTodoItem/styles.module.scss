@@ -18,19 +18,13 @@
     display: flex;
     gap: 10px;
     &_1 {
-      background-color: darkorange;
+      background-color: darkgreen;
       font-size: medium;
       padding: 10px;
       border-radius: 7px;
     }
     &_2 {
-      background-color: darkred;
-      font-size: medium;
-      padding: 10px;
-      border-radius: 7px;
-    }
-    &_3 {
-      background-color: darkgreen;
+      background-color: darkorange;
       font-size: medium;
       padding: 10px;
       border-radius: 7px;
@@ -38,20 +32,7 @@
   }
 }
 
-.completed {
-  text-decoration: line-through;
-  font-size: x-large;
-  color: rgb(82, 62, 62);
-}
-
-.wrapper_completed {
-  background-color: rgb(146, 122, 122);
-  display: flex;
-  justify-content: space-around;
+.input {
   padding: 10px;
-  border: 1px solid rgb(106, 63, 124);
   border-radius: 10px;
-  width: 1000px;
-  padding: 30px;
-  text-align: center;
 }
