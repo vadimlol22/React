@@ -7,11 +7,10 @@ import Router from "./routes/Router";
 
 import "./index.css";
 import MainLayout from "./commonComponents/MainLayout/MainLayout";
-import configureStore from "./store/configureStore";
+
+import { store } from "./store/configureStore";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-const store = configureStore();
 
 root.render(
   <BrowserRouter>

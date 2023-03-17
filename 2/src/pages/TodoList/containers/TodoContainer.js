@@ -2,17 +2,18 @@ import { useForm } from "../../../commonComponents/hooks";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  completeTodo,
-  createTodo,
-  deleteTodo,
-  editTodo,
-  saveTodo,
-  undoTodo,
-} from "../actions";
 import { todosSelector } from "../selectors";
 
 import Layout from "../component/Layout";
+
+import {
+  createTodo,
+  deleteTodo,
+  completeTodo,
+  editTodo,
+  undoTodo,
+  saveTodo,
+} from "../reducers";
 
 const TodoContainer = () => {
   const dispatch = useDispatch();
