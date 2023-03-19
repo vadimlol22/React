@@ -17,24 +17,6 @@
   &__btn {
     display: flex;
     gap: 10px;
-    &_1 {
-      background-color: darkorange;
-      font-size: medium;
-      padding: 10px;
-      border-radius: 7px;
-    }
-    &_2 {
-      background-color: darkred;
-      font-size: medium;
-      padding: 10px;
-      border-radius: 7px;
-    }
-    &_3 {
-      background-color: darkgreen;
-      font-size: medium;
-      padding: 10px;
-      border-radius: 7px;
-    }
   }
 }
 

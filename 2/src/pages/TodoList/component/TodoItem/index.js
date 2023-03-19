@@ -1,3 +1,6 @@
+import CustomButton from "../../../../commonComponents/CustomButton";
+import CustomIconButton from "../../../../commonComponents/CustomIconButton";
+
 import styles from "./styles.module.scss";
 
 const TodoItem = ({
@@ -16,24 +19,17 @@ const TodoItem = ({
         {taskText}
       </div>
       <div className={styles.wrapper__btn}>
-        <button
-          className={styles.wrapper__btn_1}
-          onClick={() => handleEdit(id)}
-        >
-          Edit
-        </button>
-        <button
-          className={styles.wrapper__btn_2}
-          onClick={() => handleDelete(id)}
-        >
-          Delete
-        </button>
-        <button
-          className={styles.wrapper__btn_3}
+        <CustomButton
+          text={"Complete"}
+          color="success"
           onClick={() => handleComplete(id)}
-        >
-          Complete
-        </button>
+        />
+        <CustomButton
+          text={"Edit"}
+          color="warning"
+          onClick={() => handleEdit(id)}
+        />
+        <CustomIconButton onClick={() => handleDelete(id)} color="error" />
       </div>
     </div>
   );

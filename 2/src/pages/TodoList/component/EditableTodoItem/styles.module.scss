@@ -1,7 +1,6 @@
 .wrapper {
   display: flex;
   justify-content: space-around;
-  padding: 10px;
   border: 1px solid rgb(106, 63, 124);
   border-radius: 10px;
   width: 1000px;
@@ -17,18 +16,6 @@
   &__btn {
     display: flex;
     gap: 10px;
-    &_1 {
-      background-color: darkgreen;
-      font-size: medium;
-      padding: 10px;
-      border-radius: 7px;
-    }
-    &_2 {
-      background-color: darkorange;
-      font-size: medium;
-      padding: 10px;
-      border-radius: 7px;
-    }
   }
 }
 

@@ -1,6 +1,7 @@
 import styles from "./styles.module.scss";
 
 import { useForm } from "../../../../commonComponents/hooks";
+import CustomButton from "../../../../commonComponents/CustomButton";
 
 const EditableTodoItem = ({
   id,
@@ -22,18 +23,16 @@ const EditableTodoItem = ({
         onChange={handleChange}
       />
       <div className={styles.wrapper__btn}>
-        <button
-          className={styles.wrapper__btn_1}
+        <CustomButton
+          text={"Save"}
+          color="success"
           onClick={() => handleSave({ id, newText: form.taskText })}
-        >
-          Save
-        </button>
-        <button
-          className={styles.wrapper__btn_2}
+        />
+        <CustomButton
+          text={"Cancel"}
+          color="warning"
           onClick={() => handleCancel(id)}
-        >
-          Cancel
-        </button>
+        />
       </div>
     </div>
   );
