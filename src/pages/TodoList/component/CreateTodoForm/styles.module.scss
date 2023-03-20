@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: darkcyan;
+  text-align: center;
+  width: 800px;
+
+  &__title {
+    color: darkkhaki;
+    margin-bottom: 15px;
+    font-size: xx-large;
+  }
+
+  &__form {
+    align-items: center;
+
+    &__btn {
+      padding: 12px;
+      width: 222px;
+      background-color: darkslategray;
+      color: gold;
+
+      &:hover {
+        background-color: rgb(38, 53, 53);
+        color: green;
+      }
+    }
+  }
+}
