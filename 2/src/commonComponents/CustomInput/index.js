@@ -1,6 +1,8 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
+import PropTypes from "prop-types";
+
 const CustomInput = ({ type, name, value, onChange }) => {
   return (
     <Box
@@ -26,6 +28,13 @@ const CustomInput = ({ type, name, value, onChange }) => {
       />
     </Box>
   );
+};
+
+CustomInput.propTypes = {
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default CustomInput;

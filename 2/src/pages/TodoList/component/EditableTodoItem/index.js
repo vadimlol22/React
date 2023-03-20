@@ -1,7 +1,9 @@
-import styles from "./styles.module.scss";
+import PropTypes from "prop-types";
 
 import { useForm } from "../../../../commonComponents/hooks";
 import CustomButton from "../../../../commonComponents/CustomButton";
+
+import styles from "./styles.module.scss";
 
 const EditableTodoItem = ({
   id,
@@ -36,6 +38,14 @@ const EditableTodoItem = ({
       </div>
     </div>
   );
+};
+
+EditableTodoItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  taskNumber: PropTypes.number.isRequired,
+  taskText: PropTypes.string.isRequired,
+  handleSave: PropTypes.func.isRequired,
+  handleCancel: PropTypes.func.isRequired,
 };
 
 export default EditableTodoItem;

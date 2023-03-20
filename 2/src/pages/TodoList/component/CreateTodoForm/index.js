@@ -1,6 +1,8 @@
-import styles from "./styles.module.scss";
+import PropTypes from "prop-types";
 
 import CustomInput from "../../../../commonComponents/CustomInput";
+
+import styles from "./styles.module.scss";
 
 const CreateTodoForm = ({ taskText, handleSubmit, handleChange }) => {
   return (
@@ -22,6 +24,12 @@ const CreateTodoForm = ({ taskText, handleSubmit, handleChange }) => {
       </div>
     </div>
   );
+};
+
+CreateTodoForm.propTypes = {
+  taskText: PropTypes.string.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default CreateTodoForm;

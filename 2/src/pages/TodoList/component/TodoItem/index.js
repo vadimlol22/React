@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import CustomButton from "../../../../commonComponents/CustomButton";
 import CustomIconButton from "../../../../commonComponents/CustomIconButton";
 
@@ -33,6 +35,16 @@ const TodoItem = ({
       </div>
     </div>
   );
+};
+
+TodoItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  isCompleted: PropTypes.bool.isRequired,
+  taskNumber: PropTypes.number.isRequired,
+  taskText: PropTypes.string.isRequired,
+  handleComplete: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default TodoItem;
