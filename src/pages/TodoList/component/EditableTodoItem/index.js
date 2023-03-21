@@ -40,6 +40,7 @@ const EditableTodoItem = ({
   );
 };
 
+// Типизация
 EditableTodoItem.propTypes = {
   id: PropTypes.string.isRequired,
   taskNumber: PropTypes.number.isRequired,
