@@ -19,11 +19,14 @@
   }
 
   &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     align-items: center;
 
     &__btn {
       padding: 12px;
-      width: 222px;
+      width: 180px;
       background-color: darkslategray;
       color: gold;
 
