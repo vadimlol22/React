@@ -18,6 +18,9 @@ const Header = () => {
       <Link to={ROUTE_NAMES.TODO} className={styles.link}>
         TODO-List
       </Link>
+      <Link to={ROUTE_NAMES.POKEMONS} className={styles.link}>
+        Pokemons
+      </Link>
     </div>
   );
 };

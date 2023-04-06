@@ -1,4 +1,3 @@
-// import { useCounter } from "../../../commonComponents/hooks";
 import CounterView from "../component/CounterView";
 
 import { useCounter } from "../../../commonComponents/hooks";
