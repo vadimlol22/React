@@ -8,6 +8,6 @@ export const getPokemonsThunk = createAsyncThunk(
   async () => {
     const response = await getPokemonsAll();
 
-    return response.data.results;
+    return response.data;
   }
 );

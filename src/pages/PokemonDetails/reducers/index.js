@@ -4,19 +4,24 @@ import { getPokemonDetailsThunk } from "../api";
 const initialState = {
   isLoading: false,
   errors: null,
-  data: {},
+  name: "",
+  stats: [],
+  sprites: [],
 };
 
 const pokemonDetailsSlice = createSlice({
   name: "pokemonDetails",
   initialState,
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getPokemonDetailsThunk.pending, (state) => {
       state.isLoading = true;
     });
     builder.addCase(getPokemonDetailsThunk.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload;
+      state.name = payload.name;
+      state.stats = payload.stats;
+      state.sprites = payload.sprites;
     });
     builder.addCase(getPokemonDetailsThunk.rejected, (state, { error }) => {
       state.isLoading = false;

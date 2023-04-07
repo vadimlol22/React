@@ -1,0 +1,57 @@
+.wrapper {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 315px;
+  margin: 20px auto 0 auto;
+  background-color: rgb(21, 214, 214);
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 10px 5px 5px rgb(47, 107, 97);
+  }
+
+  &__name {
+    color: rgb(13, 60, 114);
+  }
+
+  &__img {
+    scale: 2;
+    transition: all 0.3s;
+
+    &:hover {
+      scale: 3;
+    }
+  }
+
+  &__stats {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__stat {
+      width: 50%;
+      margin-top: 15px;
+
+      & img {
+        width: 65px;
+        height: 65px;
+        transition: all 0.3s;
+
+        &:hover {
+          scale: 1.5;
+        }
+      }
+
+      & p {
+        font-weight: 700;
+      }
+    }
+  }
+}

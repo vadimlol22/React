@@ -17,7 +17,7 @@ const dataFetchingSlice = createSlice({
     });
     builder.addCase(getPokemonsThunk.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload;
+      state.data = payload.results;
     });
     builder.addCase(getPokemonsThunk.rejected, (state, { error }) => {
       state.isLoading = false;
