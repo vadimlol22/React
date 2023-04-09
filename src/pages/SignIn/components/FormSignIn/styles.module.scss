@@ -1,0 +1,28 @@
+* {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto 0 auto;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 445px;
+  align-items: center;
+  padding: 15px;
+  background-color: aqua;
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: cadetblue;
+      width: 240px;
+    }
+  }
+}

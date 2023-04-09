@@ -21,6 +21,12 @@ const Header = () => {
       <Link to={ROUTE_NAMES.POKEMONS} className={styles.link}>
         Pokemons
       </Link>
+      <Link to={ROUTE_NAMES.SIGN_UP} className={styles.link}>
+        Sign-Up
+      </Link>
+      <Link to={ROUTE_NAMES.SIGN_IN} className={styles.link}>
+        Sign-In
+      </Link>
     </div>
   );
 };

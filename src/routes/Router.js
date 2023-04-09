@@ -5,6 +5,8 @@ import PageContainer from "../pages/page/containers/PageContainer";
 import TodoContainer from "../pages/TodoList/containers/TodoContainer";
 import PokemonsContainer from "../pages/Pokemons/containers/PokemonsContainer";
 import PokemonDetailsContainer from "../pages/PokemonDetails/containers/PokemonDetailsContainer";
+import SignUpContainer from "../pages/SignUp/containers/SignUpContainer";
+import SignInContainer from "../pages/SignIn/containers/SignInContainer";
 
 import { ROUTE_NAMES } from "./routeNames";
 
@@ -20,6 +22,8 @@ const Router = () => {
         path={ROUTE_NAMES.POKEMON_DETAILS}
         element={<PokemonDetailsContainer />}
       />
+      <Route path={ROUTE_NAMES.SIGN_UP} element={<SignUpContainer />} />
+      <Route path={ROUTE_NAMES.SIGN_IN} element={<SignInContainer />} />
     </Routes>
   );
 };
