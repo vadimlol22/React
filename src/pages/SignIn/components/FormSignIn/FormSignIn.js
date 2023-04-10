@@ -1,14 +1,22 @@
+import { useDispatch } from "react-redux";
+
 import { useForm } from "./../../../../commonComponents/hooks";
+import { signInThunk } from "../../api";
 
 import styles from "./styles.module.scss";
 
 const FormSignIn = () => {
+  const dispatch = useDispatch();
+
   const { form, handleChange, handleReset } = useForm({
     email: "",
     password: "",
   });
 
-  const handleSubmit = () => {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(signInThunk(form));
+  };
 
   return (
     <div>
@@ -22,6 +30,7 @@ const FormSignIn = () => {
               value={form.email}
               name="email"
               onChange={handleChange}
+              autoComplete="username"
             ></input>
           </label>
           <label>
@@ -31,6 +40,7 @@ const FormSignIn = () => {
               value={form.password}
               name="password"
               onChange={handleChange}
+              autoComplete="current-password"
             ></input>
           </label>
           <button role="submit">Log In</button>

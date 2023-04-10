@@ -42,8 +42,8 @@ const FormSignUp = () => {
           {data.data.message}
           <div>
             <CustomButton
-              onClick={() => navigate(ROUTE_NAMES.HOME)}
-              text={"Go Home!"}
+              onClick={() => navigate(ROUTE_NAMES.SIGN_IN)}
+              text={"Sign In!"}
             />
           </div>
         </div>
@@ -109,6 +109,7 @@ const FormSignUp = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.password}
+              autoComplete="current-password"
             />
             {formik.touched.password && formik.errors.password ? (
               <div className={styles.wrapper__input__error}>
@@ -125,6 +126,7 @@ const FormSignUp = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.confirmPassword}
+              autoComplete="current-password"
             />
             {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
               <div className={styles.wrapper__input__error}>
@@ -157,6 +159,7 @@ const FormSignUp = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
+              autoComplete="username"
             />
             {formik.touched.email && formik.errors.email ? (
               <div className={styles.wrapper__input__error}>
