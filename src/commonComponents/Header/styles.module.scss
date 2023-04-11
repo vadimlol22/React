@@ -23,4 +23,15 @@
     background-color: rgb(92, 31, 141);
     color: white;
   }
+
+  &__btn {
+    position: absolute;
+    right: 40px;
+    background-color: rgb(97, 5, 5);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.1s;
+  }
 }

@@ -9,15 +9,16 @@ import { ROUTE_NAMES } from "../../routes/routeNames";
 import styles from "./styles.module.scss";
 import { useSelector } from "react-redux";
 import isAuthenticatedSelector from "./../../pages/SignIn/selectors";
+import { logOut } from "../../utils/logOut";
 
 const Header = () => {
   const isAuthenticated = useSelector(isAuthenticatedSelector);
   // const navsItemsAccessKey = isAuthenticated ? privateNavsKeys : publicNavsKeys;
 
   return (
-    <div className={styles.header}>
+    <div>
       {isAuthenticated ? (
-        <div>
+        <div className={styles.header}>
           <Link key="COUNTER" to={ROUTE_NAMES.COUNTER} className={styles.link}>
             Counter
           </Link>
@@ -38,9 +39,13 @@ const Header = () => {
           >
             Pokemons
           </Link>
+
+          <button className={styles.link__btn} onClick={logOut}>
+            Logout
+          </button>
         </div>
       ) : (
-        <div>
+        <div className={styles.header}>
           <Link key="HOME" to={ROUTE_NAMES.HOME} className={styles.link}>
             Home
           </Link>
