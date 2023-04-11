@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 
 import { ROUTE_NAMES } from "../../../routes/routeNames";
 import { getPokemonsThunk } from "../api";
+import CustomButton from "../../../commonComponents/CustomButton";
+import PokemonLink from "../components/pokemonLink/PokemonLink";
+import Errors from "../components/Errors/Errors";
 
 const PokemonsContainer = () => {
   const dispatch = useDispatch();
 
   const pokemons = useSelector((state) => state.dataFetching.data);
+  const errors = useSelector((state) => state.dataFetching.errors);
 
   const handleGetPokemons = () => {
     dispatch(getPokemonsThunk());
@@ -16,12 +20,20 @@ const PokemonsContainer = () => {
   return (
     <div>
       <h1>Получить всех покемонов</h1>
-      <button onClick={handleGetPokemons}>Click me !</button>
+      <CustomButton onClick={() => handleGetPokemons()} text={"Click me !"} />
 
-      <div>
+      {errors && <Errors errors={errors} />}
+
+      <div style={{ display: "flex", flexWrap: "wrap", width: "700px" }}>
         {pokemons.map(({ name }) => (
-          <Link key={name} to={`${ROUTE_NAMES.POKEMONS}/${name}`}>
-            <div>{name}</div>
+          <Link
+            key={name}
+            to={`${ROUTE_NAMES.POKEMONS}/${name}`}
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            <PokemonLink name={name} />
           </Link>
         ))}
       </div>

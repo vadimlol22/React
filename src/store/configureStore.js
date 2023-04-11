@@ -1,13 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { rootReducer } from "./rootReducer";
 
-import todosReducer from "./../pages/TodoList/reducers";
-import dataFetchingReducer from "./../pages/Pokemons/reducers";
-import pokemonDetailsReducer from "./../pages/PokemonDetails/reducers";
+const persistConfig = {
+  key: "root",
+  storage,
+  whiteList: ["auth"],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: {
-    todosReducer: todosReducer,
-    dataFetching: dataFetchingReducer,
-    pokemonDetails: pokemonDetailsReducer,
-  },
+  reducer: persistedReducer,
 });
+
+export const persistor = persistStore(store);

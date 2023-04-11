@@ -13,7 +13,7 @@ const CustomButton = ({ text, onClick, color }) => {
 CustomButton.propTypes = {
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 
 export default CustomButton;
