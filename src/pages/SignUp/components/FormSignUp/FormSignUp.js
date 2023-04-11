@@ -32,9 +32,6 @@ const FormSignUp = () => {
     },
   });
 
-  console.log(data);
-  console.log(errors);
-
   return (
     <div>
       {data?.data ? (

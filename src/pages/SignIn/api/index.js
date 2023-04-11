@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { mainApi } from "../../../config/mainApi";
+import LocalStorageService from "../../../services/localStorageService";
 
 const signInRequest = (body) => mainApi.post("/auth/signIn", body);
 
@@ -10,6 +11,9 @@ export const signInThunk = createAsyncThunk(
       const { data } = await signInRequest(payload);
 
       const { accessToken, ...profileData } = data;
+      console.log(accessToken);
+
+      LocalStorageService.saveToken(accessToken);
 
       return profileData;
     } catch (error) {

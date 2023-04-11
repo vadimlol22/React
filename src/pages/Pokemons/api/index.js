@@ -1,13 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { pokemonApiConfig } from "../../../config/pokemonApi";
 
-const getPokemonsAll = () => pokemonApiConfig.get("/pokemon");
+import { mainApi } from "../../../config/mainApi";
+
+const getPokemonsAll = () => mainApi.get("/products");
 
 export const getPokemonsThunk = createAsyncThunk(
   "dataFetching/getPokemons",
-  async () => {
-    const response = await getPokemonsAll();
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await getPokemonsAll();
 
-    return response.data;
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
   }
 );

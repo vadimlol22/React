@@ -17,11 +17,12 @@ const dataFetchingSlice = createSlice({
     });
     builder.addCase(getPokemonsThunk.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload.results;
+      state.data = payload;
+      state.errors = null;
     });
-    builder.addCase(getPokemonsThunk.rejected, (state, { error }) => {
+    builder.addCase(getPokemonsThunk.rejected, (state, { payload }) => {
       state.isLoading = false;
-      state.errors = error;
+      state.errors = payload;
     });
   },
 });

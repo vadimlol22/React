@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 const FormSignIn = () => {
   const dispatch = useDispatch();
 
-  const { form, handleChange, handleReset } = useForm({
+  const { form, handleChange } = useForm({
     email: "",
     password: "",
   });
@@ -43,7 +43,7 @@ const FormSignIn = () => {
               autoComplete="current-password"
             ></input>
           </label>
-          <button role="submit">Log In</button>
+          <button type="submit">Log In</button>
         </form>
       </div>
     </div>
